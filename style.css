@@ -1,0 +1,370 @@
+/* ==========================================
+   MASHRIQ BY AHMAD & CRÈME - LUXURY THEME
+   ================================---------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg-main: #f9f6f0;       /* Soft luxury warm ivory background */
+    --surface: #ffffff;       /* Pure white card background */
+    --primary: #1f140e;       /* Deep rich dark roast espresso */
+    --primary-light: #2c1e17; /* Lighter shade of primary */
+    --accent: #c59b27;        /* Luxury antique gold */
+    --accent-glow: rgba(197, 155, 39, 0.2);
+    --text-main: #2d231e;     /* Deep charcoal brown for crisp readability */
+    --text-muted: #786a61;    /* Muted grayish brown for descriptions */
+    --border-color: #eee4db;  /* Soft warm border */
+    --radius-lg: 16px;
+    --radius-sm: 8px;
+    --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Global Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .logo, .menu-category-title, .item-name {
+    font-family: 'Playfair Display', serif;
+}
+
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Header & Navigation */
+.site-header {
+    background-color: var(--primary);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid rgba(197, 155, 39, 0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 1px;
+    line-height: 1.1;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #f2ece6;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: var(--transition);
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--accent);
+}
+
+/* Hero Section */
+.menu-hero {
+    background: linear-gradient(135deg, rgba(31, 20, 14, 0.90), rgba(44, 30, 23, 0.85)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcXyA7YtymiwioqMRUtH40_MOIGS8haLEl20Nq8Lk7WQ&s=10') center/cover no-repeat;
+    padding: 100px 0;
+    text-align: center;
+    color: #fff;
+    border-bottom: 4px solid var(--accent);
+    position: relative;
+}
+
+.menu-hero h1 {
+    font-size: 48px;
+    color: var(--accent);
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.menu-hero p {
+    font-size: 17px;
+    color: #e2d7cc;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Tabs Navigation Bar */
+.menu-nav-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    background: var(--primary-light);
+    padding: 18px 0;
+    position: sticky;
+    top: 80px;
+    z-index: 999;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    overflow-x: auto;
+}
+
+.tab-btn {
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.tab-btn.active, .tab-btn:hover {
+    background: var(--accent);
+    color: var(--primary);
+    box-shadow: 0 0 20px var(--accent-glow);
+    transform: translateY(-2px);
+}
+
+.menu-section-container {
+    display: none;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.menu-section-container.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Category Titles */
+.menu-category-title {
+    font-size: 30px;
+    color: var(--primary);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 10px;
+    margin: 50px 0 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.menu-category-title::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 70px;
+    height: 2px;
+    background: var(--primary);
+}
+
+/* Menu Grid & Cards */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 22px;
+    margin-bottom: 30px;
+}
+
+.menu-item-card {
+    background: var(--surface);
+    padding: 24px;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 30px rgba(31, 20, 14, 0.04);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition);
+}
+
+.menu-item-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent);
+    opacity: 0.7;
+    transition: var(--transition);
+}
+
+.menu-item-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(31, 20, 14, 0.08);
+    border-color: rgba(197, 155, 39, 0.4);
+}
+
+.menu-item-card:hover::before {
+    opacity: 1;
+    width: 6px;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.item-name {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1.3;
+}
+
+.item-price {
+    font-size: 16px;
+    font-weight: 700;
+    color: #b38722;
+    white-space: nowrap;
+    margin-left: 12px;
+    background: rgba(197, 155, 39, 0.1);
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.item-desc {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.signature-badge {
+    background: var(--primary);
+    color: var(--accent);
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 8px;
+    letter-spacing: 0.8px;
+    border: 1px solid rgba(197, 155, 39, 0.3);
+}
+
+/* Footer Styling */
+.site-footer {
+    background-color: var(--primary);
+    color: #fff;
+    padding: 60px 0 25px;
+    margin-top: 80px;
+    border-top: 4px solid var(--accent);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 35px;
+    margin-bottom: 45px;
+}
+
+.footer-brand {
+    font-size: 26px;
+    color: var(--accent);
+    margin-bottom: 2px;
+}
+
+.footer-by {
+    font-style: italic;
+    font-size: 13px;
+    color: #b3a595;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.footer-col h4 {
+    color: var(--accent);
+    margin-bottom: 18px;
+    font-size: 18px;
+}
+
+.footer-col p {
+    margin-bottom: 10px;
+    font-size: 13.5px;
+    color: #d1c5b8;
+}
+
+.footer-col i {
+    color: var(--accent);
+    margin-right: 8px;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 25px;
+    font-size: 13px;
+    color: #a89a8c;
+}
+
+/* Mobile Responsive */
+.mobile-menu-toggle {
+    display: none;
+    font-size: 24px;
+    color: var(--accent);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary);
+        padding: 24px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        border-bottom: 3px solid var(--accent);
+        gap: 16px;
+    }
+    .nav-links.mobile-active {
+        display: flex;
+    }
+    .menu-hero h1 {
+        font-size: 32px;
+    }
+    .menu-category-title {
+        font-size: 22px;
+    }
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
